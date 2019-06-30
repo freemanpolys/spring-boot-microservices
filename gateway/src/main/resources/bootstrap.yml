@@ -1,0 +1,12 @@
+
+spring:
+  cloud:
+    consul:
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        healthCheckPath: /my-health-check
+        healthCheckInterval: 20s
+      host: 192.168.50.1
+      port: 8500
+      config:
+        enabled: true
