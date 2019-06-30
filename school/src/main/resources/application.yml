@@ -1,5 +1,6 @@
 server:
   port: 8081
+  address: 192.168.50.1
 
 
 
@@ -9,14 +10,14 @@ spring:
     name: school
   ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
-    url: jdbc:postgresql://localhost:5432/school
+    url: jdbc:postgresql://192.168.50.1:5432/school
     username: demo
     password: demo
   jpa:
     # The SQL dialect makes Hibernate generate better SQL for the chosen database
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.H2Dialect
         jdbc.lob.non_contextual_creation: true
     # Hibernate ddl auto (create, create-drop, validate, update)
     hibernate.ddl-auto: update

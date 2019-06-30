@@ -1,4 +1,4 @@
-package com.mygglo.learning.gateway.rest;
+package com.mygglo.learning.student.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
