@@ -9,7 +9,7 @@ spring:
 
   ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
-    url: jdbc:postgresql://192.168.50.1:5432/student
+    url: jdbc:h2:file:./student
     username: demo
     password: demo
   jpa:

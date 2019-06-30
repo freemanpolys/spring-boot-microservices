@@ -17,4 +17,7 @@ public class School {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
+    private String address;
+    private String phone;
+    private String email;
 }

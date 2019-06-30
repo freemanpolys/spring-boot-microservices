@@ -16,4 +16,13 @@
             <column name="creation_date" type="datetime"/>
         </createTable>
     </changeSet>
+
+    <changeSet author="James" id="201906302304">
+        <insert tableName="school">
+            <column name="name" value="Lorem"/>
+            <column name="address" value="Dakar"/>
+            <column name="phone" value="778899000"/>
+            <column name="email" value="lorem@nomail.com"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
