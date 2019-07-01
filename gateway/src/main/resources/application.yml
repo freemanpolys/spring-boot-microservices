@@ -21,3 +21,9 @@ spring:
             - Path=/api/school/**
           filters:
             - RewritePath=/api/school/(?<request>.*), /$\{request}
+        - id: student
+          uri: lb://student
+          predicates:
+            - Path=/api/student/**
+          filters:
+            - RewritePath=/api/student/(?<request>.*), /$\{request}

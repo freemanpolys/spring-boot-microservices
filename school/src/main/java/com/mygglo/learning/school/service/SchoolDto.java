@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 /**
  * Created by James Kokou GAGLO on 2019-06-30.
@@ -17,4 +18,5 @@ public class SchoolDto {
     private String address;
     private String phone;
     private String email;
+    private LocalDateTime creationDate;
 }
