@@ -3,6 +3,21 @@ server:
   address: 192.168.50.1
 
 
+management.endpoints.web:
+    base-path: /
+    exposure.include: "*"
+
+
 spring:
   application:
     name: api-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: school
+          uri: lb://school
+          predicates:
+            - Path=/api/school/**
+          filters:
+            - RewritePath=/api/school/(?<request>.*), /$\{request}
