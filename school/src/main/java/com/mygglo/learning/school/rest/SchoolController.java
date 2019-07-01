@@ -1,9 +1,12 @@
 package com.mygglo.learning.school.rest;
 
+import com.mygglo.learning.school.service.SchoolDto;
 import com.mygglo.learning.school.service.SchoolService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by James Kokou GAGLO on 2019-06-30.
@@ -18,7 +21,23 @@ public class SchoolController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity getAll() {
+    public ResponseEntity<List<SchoolDto>> getAll() {
         return ResponseEntity.ok().body(schoolService.findAll());
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<SchoolDto> getById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(schoolService.findById(id));
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<SchoolDto> create(@RequestBody SchoolDto schoolDto) {
+        return ResponseEntity.ok().body( schoolService.save(schoolDto));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        schoolService.delete(id);
+        return ResponseEntity.ok().build();
     }
 }
