@@ -2,7 +2,6 @@ package com.mygglo.learning.school.rest;
 
 import com.mygglo.learning.school.service.SchoolDto;
 import com.mygglo.learning.school.service.SchoolService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +28,12 @@ public class SchoolController {
     public ResponseEntity<SchoolDto> getById(@PathVariable Long id) {
         return ResponseEntity.ok().body(schoolService.findById(id));
     }
+    @GetMapping("/get-name/{id}")
+    public ResponseEntity<String> getNameById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(schoolService.getNameById(id));
+    }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public ResponseEntity<SchoolDto> create(@RequestBody SchoolDto schoolDto) {
         return ResponseEntity.ok().body( schoolService.save(schoolDto));
     }

@@ -14,15 +14,24 @@ spring:
 
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "*"
+            allowed-methods:
+              - "*"
+            allowed-headers:
+              - "*"
       routes:
-        - id: school
-          uri: lb://school
+        - id: school-api
+          uri: lb://school-api
           predicates:
             - Path=/api/school/**
           filters:
             - RewritePath=/api/school/(?<request>.*), /$\{request}
-        - id: student
-          uri: lb://student
+        - id: student-api
+          uri: lb://student-api
           predicates:
             - Path=/api/student/**
           filters:

@@ -30,7 +30,7 @@ public class StudentController {
         return ResponseEntity.ok().body(studentService.findById(id));
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public ResponseEntity<StudentDto> create(@RequestBody StudentDto studentDto) {
         return ResponseEntity.ok().body( studentService.save(studentDto));
     }

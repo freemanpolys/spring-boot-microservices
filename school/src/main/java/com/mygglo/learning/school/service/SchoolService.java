@@ -50,4 +50,8 @@ public class SchoolService {
                     return schoolDto;
                 }).get();
     }
+
+    public String getNameById(Long id) {
+        return schoolRepository.getNameById(id);
+    }
 }

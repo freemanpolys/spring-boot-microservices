@@ -1,6 +1,7 @@
 package com.mygglo.learning.student.service;
 
 import com.mygglo.learning.student.domain.Student;
+import com.mygglo.learning.student.domain.StudentToStudentDtoMapper;
 import com.mygglo.learning.student.repository.StudentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,11 @@ import java.util.stream.Collectors;
 public class StudentService {
     private final StudentRepository studentRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    private final StudentToStudentDtoMapper toStudentDtoMapper;
+
+    public StudentService(StudentRepository studentRepository, StudentToStudentDtoMapper toStudentDtoMapper) {
         this.studentRepository = studentRepository;
+        this.toStudentDtoMapper = toStudentDtoMapper;
     }
 
 
@@ -34,21 +38,13 @@ public class StudentService {
 
     public List<StudentDto> findAll() {
         return studentRepository.findAll().stream()
-                .map(student -> {
-                    StudentDto studentDto = new StudentDto();
-                    BeanUtils.copyProperties(student,studentDto);
-                    return studentDto;
-
-                })
+                .map(toStudentDtoMapper)
                 .collect(Collectors.toList());
     }
 
     public StudentDto findById(Long id) {
         return studentRepository.findById(id)
-                .map(student -> {
-                    StudentDto studentDto = new StudentDto();
-                    BeanUtils.copyProperties(student,studentDto);
-                    return studentDto;
-                }).get();
+                .map(toStudentDtoMapper).get();
     }
+
 }

@@ -15,6 +15,7 @@ public class StudentDto {
     private String lastName;
     private String phone;
     private Long schoolId;
+    private String schoolName;
     private LocalDateTime creationDate;
 
 }

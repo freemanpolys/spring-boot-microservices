@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: student
+    name: student-api
 
   ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
   datasource:
