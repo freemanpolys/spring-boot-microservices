@@ -1,0 +1,69 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<section class="container-fluid">
+<div style="text-align:center">
+  <img width="150" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<router-outlet></router-outlet>
+
+<h1>School list</h1>
+<form>
+  <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Name" [(ngModel)]="updateSchool.name" [ngModelOptions]="{standalone: true}"/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Address" [(ngModel)]="updateSchool.address" [ngModelOptions]="{standalone: true}"/>
+    </div>
+    <div class="col">
+      <input type="email" class="form-control" placeholder="Email" [(ngModel)]="updateSchool.email"  [ngModelOptions]="{standalone: true}"/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="updateSchool.phone"  [ngModelOptions]="{standalone: true}"/>
+    </div>
+    <a class="btn btn-secondary" (click)="updateSchoolData()">Update</a>
+  </div>
+</form>
+<table class="table">
+  <thead>
+  <th>#</th>
+  <th>Name</th>
+  <th>Address</th>
+  <th>Email</th>
+  <th>Phone</th>
+  <th colspan="2">Action</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let school of schoolList">
+    <td>{{school.id}}</td>
+    <td>{{school.name}}</td>
+    <td>{{school.address}}</td>
+    <td>{{school.email}}</td>
+    <td>{{school.phone}}</td>
+    <td><button type="button" (click)="selectSchool(school)" class="btn btn-link">Update</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h1>Student list</h1>
+<table class="table">
+  <thead>
+  <th>#</th>
+  <th>Name</th>
+  <th>Last Name</th>
+  <th>Phone</th>
+  <th>School</th>
+  <th colspan="2">Action</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of studentlList">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.lastName}}</td>
+    <td>{{student.phone}}</td>
+    <td>{{student.schoolName}}</td>
+    <td><span (click)="deleteStudent(student.id)">Supprimer</span></td>
+  </tr>
+  </tbody>
+</table>
+</section>
