@@ -2,6 +2,7 @@ package com.mygglo.learning.student.rest;
 
 import com.mygglo.learning.student.service.StudentDto;
 import com.mygglo.learning.student.service.StudentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by James Kokou GAGLO on 2019-07-01.
  */
 @RestController
+@Slf4j
 public class StudentController {
 
     private final StudentService studentService;
@@ -32,6 +34,7 @@ public class StudentController {
 
     @PostMapping("/save")
     public ResponseEntity<StudentDto> create(@RequestBody StudentDto studentDto) {
+        log.info("============" + studentDto);
         return ResponseEntity.ok().body( studentService.save(studentDto));
     }
 

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   schoolList : Array<School> ;
   studentlList : Array<Student> ;
   updateSchool : School;
+  newStudent: Student;
 
   constructor(private apiService: ApiService) {}
 
@@ -21,26 +22,16 @@ export class AppComponent implements OnInit{
     this.updateSchool = new School();
     this.loadAllSchool();
     this.loadAllStudent();
+    this.newStudent = new Student();
 
   }
 
-  editSchool(school: School) {
-    
-  }
 
   deleteSchool(id: number) {
-    this.apiService.delSchoolList(id).subscribe((res) => {
+    this.apiService.delSchool(id).subscribe((res) => {
       this.loadAllSchool();
       this.loadAllStudent();
     });
-  }
-
-  editStudent(student: Student) {
-    
-  }
-
-  deleteStudent(id: number) {
-    
   }
 
   updateSchoolData() {
@@ -70,5 +61,19 @@ export class AppComponent implements OnInit{
 
   selectSchool(school: School) {
     this.updateSchool = school;
+  }
+
+  addNewStudent() {
+    this.apiService.saveStudent(this.newStudent).subscribe( (re) => {
+      this.loadAllStudent();
+    });
+    this.newStudent = new Student();
+
+  }
+
+  deleteStudent(id: number) {
+    this.apiService.delStudent(id).subscribe((res) => {
+      this.loadAllStudent();
+    });
   }
 }

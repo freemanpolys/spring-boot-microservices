@@ -20,7 +20,7 @@
     <div class="col">
       <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="updateSchool.phone"  [ngModelOptions]="{standalone: true}"/>
     </div>
-    <a class="btn btn-secondary" (click)="updateSchoolData()">Update</a>
+    <a class="btn btn-secondary" (click)="updateSchoolData()">Save</a>
   </div>
 </form>
 <table class="table">
@@ -39,13 +39,33 @@
     <td>{{school.address}}</td>
     <td>{{school.email}}</td>
     <td>{{school.phone}}</td>
-    <td><button type="button" (click)="selectSchool(school)" class="btn btn-link">Update</button>
+    <td><button type="button" (click)="selectSchool(school)" class="btn btn-link ">Update</button>
+    <td><button type="button" (click)="deleteSchool(school.id)" class="btn btn-link ">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
 
 <h1>Student list</h1>
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="newStudent.name" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Address" [(ngModel)]="newStudent.lastName" [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <div class="col">
+        <select [(ngModel)]="newStudent.schoolId" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let school of schoolList; let i = index" value="{{school.id}}">{{school.name}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Phone" [(ngModel)]="newStudent.phone"  [ngModelOptions]="{standalone: true}"/>
+      </div>
+      <a class="btn btn-secondary" (click)="addNewStudent()">Create</a>
+    </div>
+  </form>
 <table class="table">
   <thead>
   <th>#</th>
@@ -62,7 +82,7 @@
     <td>{{student.lastName}}</td>
     <td>{{student.phone}}</td>
     <td>{{student.schoolName}}</td>
-    <td><span (click)="deleteStudent(student.id)">Supprimer</span></td>
+    <td><button (click)="deleteStudent(student.id)" class="btn btn-link ">Delete</button></td>
   </tr>
   </tbody>
 </table>

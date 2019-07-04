@@ -16,13 +16,4 @@
             <column name="creation_date" type="datetime"/>
         </createTable>
     </changeSet>
-
-    <changeSet author="James" id="201907011621">
-        <insert tableName="student">
-            <column name="name" value="Ipsum"/>
-            <column name="last_name" value="Dolor"/>
-            <column name="phone" value="778899000"/>
-            <column name="school_id" value="1"/>
-        </insert>
-    </changeSet>
 </databaseChangeLog>

@@ -19,11 +19,21 @@ export class ApiService {
     return this.httpClient.post<School>(`${this.apiURL}/school/save`,school);
   }
 
-  public delSchoolList(id :number){
-    return this.httpClient.delete<School[]>(`${this.apiURL}/school/delete/${id}`);
+  public delSchool(id :number){
+    return this.httpClient.delete(`${this.apiURL}/school/delete/${id}`);
   }
 
   public getStudentList(){
     return this.httpClient.get<Student[]>(`${this.apiURL}/student/list`);
   }
+
+  public saveStudent(student : Student){
+    return this.httpClient.post<Student>(`${this.apiURL}/student/save`,student);
+  }
+
+
+  public delStudent(id :number){
+    return this.httpClient.delete(`${this.apiURL}/student/delete/${id}`);
+  }
+
 }

@@ -4,5 +4,6 @@ export class Student {
   lastName: string;
   phone: string;
   schoolName: string;
+  schoolId: number;
 
 }
