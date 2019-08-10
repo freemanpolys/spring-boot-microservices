@@ -1,0 +1,4 @@
+flask-restplus
+flask-marshmallow
+requests>=2.4.2
+
